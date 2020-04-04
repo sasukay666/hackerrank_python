@@ -1,3 +1,4 @@
+# https://www.hackerrank.com/challenges/text-alignment/problem
 '''
 Enter an integer value to print a 'H' logo of some comapany. It was basically to understand
 the working of string ljust, rjust, center functions.
