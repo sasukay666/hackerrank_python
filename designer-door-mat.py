@@ -1,3 +1,4 @@
+# https://www.hackerrank.com/challenges/designer-door-mat/problem
 # input two integers n, m; such that n is odd and m is 3n
 # 27 81
 # ---------------------------------------.|.---------------------------------------
