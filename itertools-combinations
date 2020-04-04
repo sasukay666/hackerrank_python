@@ -1,0 +1,52 @@
+# https://www.hackerrank.com/challenges/itertools-combinations/problem
+#
+# Sample Input
+# HACK 2
+# Sample Output
+# A
+# C
+# H
+# K
+# AC
+# AH
+# AK
+# CH
+# CK
+# HK
+
+import itertools
+*t1, k = map(list,input().split())
+t1 = t1[0]
+l1, lt, ltc, ltc2 = [], [], [], []
+k = "".join(k)
+k = int(k)
+
+def swap(string, i, j):
+    tempi, tempj = string[i], string[j]
+    return string[:i] + tempj + string[i+1:j] + tempi + string[j+1:]
+def stringSort(stre):
+    for i in range(len(stre)-1):
+        for j in range(i, len(stre)):
+            if ord(stre[i]) > ord(stre[j]):
+                stre = swap(stre, i, j)
+    return stre
+
+for i in range(1, k+1):
+    l1.append(list(itertools.combinations(t1, i)))
+#print(l1)
+
+for e1 in l1:
+    for e2 in e1:
+        stre = ''
+        for e3 in e2:
+            stre += e3
+        stre = stringSort(stre)
+        lt.append(stre)
+    ltc = lt.copy()
+    ltc.sort()
+    ltc2.append(ltc)
+    lt.clear()
+
+for e1 in ltc2:
+    for e2 in e1:
+        print(e2)
