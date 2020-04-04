@@ -1,3 +1,5 @@
+# https://www.hackerrank.com/challenges/python-string-formatting/problem
+
 def print_formatted(number):
     '''This function can be used to print the decimal, octal, hexadecimal and
     binary value of integers upto the input decimal number, side by side.
