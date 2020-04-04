@@ -1,0 +1,50 @@
+# itertools.combinations_with_replacement()
+#
+# https://www.hackerrank.com/challenges/itertools-combinations-with-replacement/problem
+#
+#Task - You are given a string . 
+#Your task is to print all possible size  replacement combinations of the string in lexicographic sorted order.
+#Input Format - A single line containing the string  and integer value  separated by a space.
+#Constraints - The string contains only UPPERCASE characters.
+#Output Format - Print the combinations with their replacements of string  on separate lines.
+#Sample Input
+#HACK 2
+#Sample Output
+#AA
+#AC
+#AH
+#AK
+#CC
+#CH
+#CK
+#HH
+#HK
+#KK
+
+import itertools
+
+def swap(string, i, j):
+    tempi, tempj = string[i], string[j]
+    return string[:i] + tempj + string[i+1:j] + tempi + string[j+1:]
+def stringSort(stre):
+    for i in range(len(stre)-1):
+        for j in range(i, len(stre)):
+            if ord(stre[i]) > ord(stre[j]):
+                stre = swap(stre, i, j)
+    return stre
+
+lt = []
+*t1, k = map(list, input().split())
+t1 = t1[0]
+k = "".join(k)
+k = int(k)
+l1 = list(itertools.combinations_with_replacement(t1, k))
+for e1 in l1:
+    stre = ''
+    for e2 in e1:
+        stre += e2
+    stre = stringSort(stre)
+    lt.append(stre)
+lt.sort()
+for e in lt:
+    print(e)
